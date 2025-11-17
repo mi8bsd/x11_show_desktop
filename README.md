@@ -1,9 +1,6 @@
-# Quimby
-
 An open-source small tool written in GO for automating backups of FreeBSD jails managed with 
 [Bastille](https://bastillebsd.org/).
 
-(Quimby: a beginner surfer who is usually annoying)
 
 ## Requirements
 
@@ -25,7 +22,7 @@ a regular basis.
 - By default it removes backup files that are older than 2 days in /usr/local/bastille/backups/
 - If specified with flags, it can optinally safely stop/start jails (for UFS filesystems) and remove
   backup files according to the retention period provided in number of days
-- Logs activity in /var/log/quimby.log
+- Logs activity in /var/log/jails.log
 
 ## TODO:
 - Backup running jails only
@@ -35,32 +32,32 @@ a regular basis.
 
 #### Git on FreeBSD
 ```shell
-git clone https://github.com/tofazzz/quimby.git
-cd quimby
-go build -o quimby
-chmod +x quimby
-mv quimby /usr/local/bin/
+git clone https://github.com/mi8bsd/jails.git
+cd jails
+go build -o jails
+chmod +x jails
+mv jails /usr/local/bin/
 ```
 
 #### Git on other platforms
 ```shell
-git clone https://github.com/tofazzz/quimby.git
-cd quimby
-env GOOS=freebsd GOARCH=amd64 go build -o quimby
-chmod +x quimby
-mv quimby /usr/local/bin/
+git clone https://github.com/mi8bsd/jails.git
+cd jails
+env GOOS=freebsd GOARCH=amd64 go build -o jails
+chmod +x jails
+mv jails /usr/local/bin/
 ```
 
 #### Crontab (every day at 1am)
 ```shell
-0 1 * * * /usr/local/bin/quimby
+0 1 * * * /usr/local/bin/jails
 ```
 
 ## Sample Usages
 
-- quimby
-- quimby safe 4
-- quimby live 9
+- jails
+- jails safe 4
+- jails live 9
 
 ## CMD options:
 
